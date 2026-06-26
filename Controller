@@ -1,1 +1,35 @@
 this is controller class
+#changes by developer 1 at 11 am
+@RestController
+public class EmployeeController {
+	
+	@Autowired
+	private EmployeeRepository empRepo;
+	
+	@GetMapping("/getData")
+	public List<Employee> getAll(){
+		return empRepo.findAll();
+	}
+	@PostMapping("/saveData")
+	public Employee saveEmployee(@RequestBody Employee employee) {
+		return empRepo.save(employee);
+	}
+	@DeleteMapping("/deleteEmp/{id}")
+	public void deleteEmployee(@PathVariable Long id) {
+		empRepo.deleteById(id);
+	}
+	
+	public Employee updateEmployee(@RequestBody Employee NewEmployee , @PathVariable Long id) {
+		return empRepo.findById(id).map(employee->{
+			employee.setName(NewEmployee.getName());
+			employee.setCity(NewEmployee.getCity());
+        return empRepo.save(employee);
+		}).orElseGet(()->{
+			NewEmployee.setId(id);
+			return empRepo.save(NewEmployee);
+		});
+		
+	}
+
+}
+#End of 11 am changes
