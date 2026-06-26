@@ -33,3 +33,18 @@ public class EmployeeController {
 
 }
 #End of 11 am changes
+#changes by developer at 12 pm
+public Employee updateEmployee(@RequestBody Employee NewEmployee , @PathVariable Long id) {
+		return empRepo.findById(id).map(employee->{
+			employee.setName(NewEmployee.getName());
+			employee.setCity(NewEmployee.getCity());
+        return empRepo.save(employee);
+		}).orElseGet(()->{
+			NewEmployee.setId(id);
+			return empRepo.save(NewEmployee);
+		});
+		
+	}
+
+}
+#End of 12 Pm Changes
