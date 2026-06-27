@@ -9,7 +9,7 @@ public class A {
     	String result = s.chars().mapToObj(c->(char)c).map(String::valueOf).distinct().collect(Collectors.joining());
     	System.out.println(result);
     }
-# Feature 101 code changes added by akshat
+# Feature 102 code changes added by shiva
 
 private String name;
 	private int salary;
