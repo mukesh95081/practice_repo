@@ -9,4 +9,28 @@ public class A {
     	String result = s.chars().mapToObj(c->(char)c).map(String::valueOf).distinct().collect(Collectors.joining());
     	System.out.println(result);
     }
+# Feature 101 code changes added by akshat
+
+private String name;
+	private int salary;
+	private String dept;
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getSalary() {
+		return salary;
+	}
+	public void setSalary(int salary) {
+		this.salary = salary;
+	}
+	public String getDept() {
+		return dept;
+	}
+	public void setDept(String dept) {
+		this.dept = dept;
+	}
+
 }
