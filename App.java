@@ -8,5 +8,6 @@ public class A {
 //    			new Employee("B",6000,"CS"));
     	String result = s.chars().mapToObj(c->(char)c).map(String::valueOf).distinct().collect(Collectors.joining());
     	System.out.println(result);
+        System.out.println(data);
     }
 }
